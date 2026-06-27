@@ -1,0 +1,8 @@
+{
+  "id": "5366",
+  "number": 5366,
+  "title": "Canvas version diff highlighting",
+  "body": "Canvas version diffs currently highlight entire changed blocks, making it hard to see what specifically changed. Only modified lines should be colored (green for additions, red for removals); within those lines, the exact characters that changed should be highlighted in a stronger shade (like GitHub's inline diffs); unchanged lines should have no background color.",
+  "labels": ["enhancement"],
+  "repo": "superplanehq/superplane"
+}

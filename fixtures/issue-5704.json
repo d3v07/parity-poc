@@ -1,0 +1,8 @@
+{
+  "id": "5704",
+  "number": 5704,
+  "title": "Run inspection UX paper cuts",
+  "body": "A collection of UX issues when inspecting runs and node executions: (1) run duration not shown on a single run; (2) node execution duration missing when selecting a node; (3) payload inspection is hard — JSON collapsed by default, no full-screen/modal view for large payloads; (4) no way to return to live canvas when the sidebar is collapsed; (5) cannot search runs by title in the runs sidebar.",
+  "labels": ["bug"],
+  "repo": "superplanehq/superplane"
+}

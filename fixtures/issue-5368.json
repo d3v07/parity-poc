@@ -1,0 +1,8 @@
+{
+  "id": "5368",
+  "number": 5368,
+  "title": "Markdown view mode (mermaid.js, node mention chips)",
+  "body": "In view mode, markdown files should render properly with full markdown support. Currently missing: mermaid.js diagrams should render as actual diagrams (not raw code blocks); custom chips for node mentions (the same chips rendered in agent chat) should work in file view mode; general markdown elements (tables, syntax-highlighted code, images) should render correctly. Edit mode can stay raw text; view mode should be a fully rendered preview.",
+  "labels": ["enhancement"],
+  "repo": "superplanehq/superplane"
+}

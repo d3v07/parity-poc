@@ -1,0 +1,8 @@
+{
+  "id": "5705",
+  "number": 5705,
+  "title": "Canvas warnings improvements",
+  "body": "Improve canvas warnings for misconfigured nodes: (1) warning UI design — node references should render as node-mention chips like in agent chat, not plain links; (2) missing warnings — action nodes without incoming edges won't execute but generate no alert, so audit other misconfiguration cases; (3) placement and rendering — surface warnings in a more visible, accessible location so users notice them before hitting problems.",
+  "labels": ["enhancement"],
+  "repo": "superplanehq/superplane"
+}

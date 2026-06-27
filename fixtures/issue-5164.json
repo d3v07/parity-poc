@@ -1,0 +1,8 @@
+{
+  "id": "5164",
+  "number": 5164,
+  "title": "Send execution to agent chat",
+  "body": "When node executions fail, users manually copy error details, switch to agent chat, paste content, and explain context. Add a 'Send to Agent' button on execution detail views; clicking opens agent chat pre-loaded with execution context (node name, status, input/output payloads, error message) so users can ask 'fix this' with full context already available.",
+  "labels": ["enhancement"],
+  "repo": "superplanehq/superplane"
+}
