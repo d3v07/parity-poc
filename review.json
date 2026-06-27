@@ -1,0 +1,43 @@
+{
+  "perAgentSummaries": [
+    {
+      "role": "ProductManager",
+      "summary": "Scoped issue #5368 to three view-mode features — GFM rendering, inline mermaid diagrams, and @node[Label] mention chips — with acceptance criteria that explicitly exclude chips inside code. Editing/persistence and chip navigation are deferred."
+    },
+    {
+      "role": "EngineeringManager",
+      "summary": "Sequenced seven tasks: architecture first, then the remark plugin and mermaid renderer in parallel, the MarkdownView wiring, the UI shell, tests, and the deploy manifest. Flagged the jsdom/mermaid and escaping risks up front."
+    },
+    {
+      "role": "Architect",
+      "summary": "Chose Vite + React + TS with react-markdown + remark-gfm and defined a clean seam: MarkdownView routes code fences, MermaidDiagram owns async SVG rendering, and remarkNodeMention splits text nodes into custom mdast nodes."
+    },
+    {
+      "role": "FrontendDeveloper",
+      "summary": "Implemented the remark plugin, the mermaid component (async render in an effect with error fallback), syntax-highlighted code blocks, the split-pane editor, and a distinctive dark theme with chips that visibly pop."
+    },
+    {
+      "role": "BackendDeveloper",
+      "summary": "Confirmed no backend is required for this client-side slice and emitted a README documenting the decision so the stage gate stays explicit rather than silently empty."
+    },
+    {
+      "role": "QAEngineer",
+      "summary": "Added vitest + Testing Library on jsdom with mermaid mocked. Five tests pass: regex capture, chip rendering with label, code-span exclusion, mermaid fence routing, and GFM table rendering. Gate green."
+    },
+    {
+      "role": "SecurityEngineer",
+      "summary": "Verified mermaid runs in strict mode and react-markdown does not enable raw HTML, so neither markdown nor diagram source is an open XSS path. Secrets scan clean; only low/info findings. Gate green."
+    },
+    {
+      "role": "DevOpsEngineer",
+      "summary": "Produced a static_site manifest: build `npm run build`, publish `dist`, health check `/`. No env vars or runtime secrets; ready for the Render delivery layer."
+    },
+    {
+      "role": "Reviewer",
+      "summary": "All gates green: build succeeds, five tests pass, security clean. The golden frontend bundle independently materializes, installs, and builds. Approving for merge."
+    }
+  ],
+  "verdict": "approve",
+  "prTitle": "feat(canvas): markdown view mode — GFM, mermaid diagrams, and @node mention chips (#5368)",
+  "prBody": "## Summary\n\nImplements **Markdown view mode** for SuperPlane canvases (#5368). Canvas markdown is now rendered for reading instead of shown as raw text:\n\n- **GitHub-flavored markdown** — headings, lists, tables, blockquotes, links, and syntax-highlighted code via `react-markdown` + `remark-gfm`.\n- **Mermaid diagrams** — fenced ` ```mermaid ` blocks render as live SVG through the `mermaid` package.\n- **Node-mention chips** — inline `@node[Label]` tokens render as styled pills via a custom remark plugin (`remarkNodeMention`) that splits text nodes into mdast nodes, keeping react-markdown escaping intact. Tokens inside code stay literal.\n\n## Stack\n\nVite + React + TypeScript, built to a static `dist/` and deployed as a static site.\n\n## How it works\n\n```mermaid\nflowchart LR\n  MD[Canvas markdown] --> RM[react-markdown + remark-gfm]\n  RM --> CHIP[remarkNodeMention -> chips]\n  RM --> CODE{fence lang?}\n  CODE -- mermaid --> SVG[MermaidDiagram]\n  CODE -- other --> HL[Syntax highlight]\n```\n\n## Testing\n\n`npm test` — 5 passing vitest tests (jsdom, mermaid mocked):\n\n- node-mention regex captures the label\n- `@node[...]` renders as a chip with the right label\n- `@node` inside code spans stays literal (no chip)\n- ` ```mermaid ` fences route to the mermaid renderer\n- GFM tables render\n\n`npm run build` succeeds. The golden frontend bundle was materialized to a clean directory and independently installs and builds.\n\n## Out of scope\n\nEditing/persisting markdown, clicking a chip to navigate to the live node, and auth — tracked separately.\n\nCloses #5368."
+}
