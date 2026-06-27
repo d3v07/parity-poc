@@ -5,13 +5,27 @@ validation issue from `superplanehq/superplane`. Each lives in its own `apps/<id
 directory as a self-contained Vite + React + TypeScript app that builds to a static
 site, was opened as its own pull request, and carries a `render.yaml` preview blueprint.
 
-| Issue | PoC | Path | Run |
-|-------|-----|------|-----|
-| [#5368](https://github.com/superplanehq/superplane/issues/5368) | Markdown view mode — GFM, mermaid.js diagrams, `@node[…]` mention chips | [`apps/5368`](apps/5368) | `cd apps/5368 && npm install && npm run dev` |
-| [#5366](https://github.com/superplanehq/superplane/issues/5366) | Canvas version diff — line + intra-line character highlighting | [`apps/5366`](apps/5366) | `cd apps/5366 && npm install && npm run dev` |
-| [#5164](https://github.com/superplanehq/superplane/issues/5164) | Send execution to agent chat — one-click context handoff | [`apps/5164`](apps/5164) | `cd apps/5164 && npm install && npm run dev` |
-| [#5704](https://github.com/superplanehq/superplane/issues/5704) | Run inspection UX — durations, payload modal, run search, back-to-canvas | [`apps/5704`](apps/5704) | `cd apps/5704 && npm install && npm run dev` |
-| [#5705](https://github.com/superplanehq/superplane/issues/5705) | Canvas warnings — node-mention chips, broader detection, prominent panel | [`apps/5705`](apps/5705) | `cd apps/5705 && npm install && npm run dev` |
+## Live demos
+
+All five PoCs are deployed as Render static sites.
+
+| Issue | Shows | Live URL | Path |
+|-------|-------|----------|------|
+| [#5368](https://github.com/superplanehq/superplane/issues/5368) | Markdown view mode | [markdown-view-mode-parity-markdown-view.onrender.com](https://markdown-view-mode-parity-markdown-view.onrender.com) | [`apps/5368`](apps/5368) |
+| [#5366](https://github.com/superplanehq/superplane/issues/5366) | Canvas version diff | [parity-poc-5366.onrender.com](https://parity-poc-5366.onrender.com) | [`apps/5366`](apps/5366) |
+| [#5164](https://github.com/superplanehq/superplane/issues/5164) | Send execution to agent chat | [parity-poc-5164.onrender.com](https://parity-poc-5164.onrender.com) | [`apps/5164`](apps/5164) |
+| [#5704](https://github.com/superplanehq/superplane/issues/5704) | Run inspection UX | [parity-poc-5704.onrender.com](https://parity-poc-5704.onrender.com) | [`apps/5704`](apps/5704) |
+| [#5705](https://github.com/superplanehq/superplane/issues/5705) | Canvas warnings | [parity-poc-5705.onrender.com](https://parity-poc-5705.onrender.com) | [`apps/5705`](apps/5705) |
+
+## PoCs
+
+| Issue | PoC | Path | Live | Run |
+|-------|-----|------|------|-----|
+| [#5368](https://github.com/superplanehq/superplane/issues/5368) | Markdown view mode — GFM, mermaid.js diagrams, `@node[…]` mention chips | [`apps/5368`](apps/5368) | [open](https://markdown-view-mode-parity-markdown-view.onrender.com) | `cd apps/5368 && npm install && npm run dev` |
+| [#5366](https://github.com/superplanehq/superplane/issues/5366) | Canvas version diff — line + intra-line character highlighting | [`apps/5366`](apps/5366) | [open](https://parity-poc-5366.onrender.com) | `cd apps/5366 && npm install && npm run dev` |
+| [#5164](https://github.com/superplanehq/superplane/issues/5164) | Send execution to agent chat — one-click context handoff | [`apps/5164`](apps/5164) | [open](https://parity-poc-5164.onrender.com) | `cd apps/5164 && npm install && npm run dev` |
+| [#5704](https://github.com/superplanehq/superplane/issues/5704) | Run inspection UX — durations, payload modal, run search, back-to-canvas | [`apps/5704`](apps/5704) | [open](https://parity-poc-5704.onrender.com) | `cd apps/5704 && npm install && npm run dev` |
+| [#5705](https://github.com/superplanehq/superplane/issues/5705) | Canvas warnings — node-mention chips, broader detection, prominent panel | [`apps/5705`](apps/5705) | [open](https://parity-poc-5705.onrender.com) | `cd apps/5705 && npm install && npm run dev` |
 
 Each app builds with `npm run build` (→ `dist/`) and ships its own vitest feature tests.
 The factory that produced them lives in the [Parity](https://github.com/d3v07/Parity) repo.
