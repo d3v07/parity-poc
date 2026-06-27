@@ -1,38 +1,7 @@
-# Render blueprint — one static-site preview per generated PoC.
-# Declarative only; Render provisions a per-PR preview on push. No API calls.
 services:
   - type: web
-    name: parity-poc-5368
+    name: markdown-view-mode
     runtime: static
-    rootDir: apps/5368
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true
-  - type: web
-    name: parity-poc-5366
-    runtime: static
-    rootDir: apps/5366
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true
-  - type: web
-    name: parity-poc-5164
-    runtime: static
-    rootDir: apps/5164
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true
-  - type: web
-    name: parity-poc-5704
-    runtime: static
-    rootDir: apps/5704
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true
-  - type: web
-    name: parity-poc-5705
-    runtime: static
-    rootDir: apps/5705
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: dist
     pullRequestPreviewsEnabled: true

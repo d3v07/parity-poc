@@ -1,5 +1,4 @@
-import type { ComponentProps } from "react";
-import ReactMarkdown, { type Components, type ExtraProps } from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -21,12 +20,10 @@ function MentionChip({ label }: MentionProps) {
   );
 }
 
-// `node-mention` is a custom mdast node injected by remarkNodeMention, so it is
-// not in react-markdown's Components key map — cast the whole object once at the
-// boundary rather than fighting the type per-entry.
-const components = {
-  "node-mention": (props: MentionProps) => <MentionChip label={props.label} />,
-  code({ className, children, ...rest }: ComponentProps<"code"> & ExtraProps) {
+const components: Components = {
+  // Custom mdast node injected by remarkNodeMention.
+  "node-mention": ((props: MentionProps) => <MentionChip label={props.label} />) as never,
+  code({ className, children, ...rest }) {
     const text = String(children).replace(/\n$/, "");
     const match = /language-(\w+)/.exec(className ?? "");
     const lang = match?.[1];
@@ -59,7 +56,7 @@ const components = {
       </code>
     );
   },
-} satisfies Components & { "node-mention": unknown };
+};
 
 export function MarkdownView({ source }: Props) {
   return (
